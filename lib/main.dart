@@ -17,6 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      routes: {
+        QuestionScreen.route: (ctx) => const QuestionScreen(),
+      },
       home: const HomePage(title: 'Flutter Demo Home Page'),
     );
   }
