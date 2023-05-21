@@ -6,28 +6,43 @@ import 'package:flutter/rendering.dart';
 class MyTimer extends StatelessWidget {
   final int time;
   final VoidCallback countingTime;
-  const MyTimer({required this.time, required this.countingTime, super.key});
+  const MyTimer({
+    required this.time,
+    required this.countingTime,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     countingTime();
-    return Container(
-      height: 60,
-      width: 60,
-      margin: const EdgeInsets.only(bottom: 2),
-      decoration: BoxDecoration(
-        // color: Colors.blueGrey,
-        border: Border.all(
-          width: 5,
-          color: time > 6 ? Colors.amber : Colors.red,
+    return Stack(alignment: Alignment.center, children: [
+      Container(
+        height: 60,
+        width: 60,
+        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.only(bottom: 2),
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 255, 255, 255),
+          borderRadius: BorderRadius.circular(50),
         ),
-        borderRadius: BorderRadius.circular(50),
+        alignment: Alignment.center,
+        child: Transform.scale(
+          scale: 1.5,
+          child: CircularProgressIndicator(
+            color: Colors.purple,
+            value: time / (15),
+            valueColor: const AlwaysStoppedAnimation<Color>(Colors.purple),
+          ),
+        ),
       ),
-      alignment: Alignment.center,
-      child: Text(
-        '${time}',
-        style: const TextStyle(fontSize: 20),
+      Positioned(
+        top: 17,
+        left: 18,
+        child: Text(
+          '${time.toString().padLeft(2, '0')}',
+          style: const TextStyle(fontSize: 20),
+        ),
       ),
-    );
+    ]);
   }
 }

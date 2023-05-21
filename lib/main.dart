@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/screens/home_screens.dart';
 import 'package:quiz/screens/questions_screen.dart';
+import 'package:quiz/screens/quiz_done_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +20,12 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         QuestionScreen.route: (ctx) => const QuestionScreen(),
+        QuizDoneScreen.route: (ctx) => QuizDoneScreen(),
+        HomePage.route: (ctx) => HomePage(
+              title: 'HOME PAGE',
+            ),
       },
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

@@ -1,14 +1,14 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:quiz/constants/data.dart';
-import 'package:quiz/models/questions.dart';
 import 'package:quiz/screens/questions_screen.dart';
 import 'package:quiz/widgets/bloc_search.dart';
 
 class HomePage extends StatelessWidget {
+  static const route = '/home';
   final String title;
-  const HomePage({required this.title, super.key});
+  HomePage({required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
